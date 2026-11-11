@@ -32,5 +32,7 @@ jobs:
         with:
           node-version: '20'
       - run: npm install --force
-      - run: npm run lint --if-present
-      - run: npm run build
+      - name: Run Build without interactive lint
+        run: npx next build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
